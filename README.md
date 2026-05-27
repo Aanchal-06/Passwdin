@@ -2,7 +2,7 @@
 
 Passwdin is a modern, real-time password analysis tool designed to help users create highly secure passwords. It goes beyond simple character counting by analyzing mathematical entropy and detecting common patterns used in dictionary attacks.
 
-## 🚀 Key Features
+## Key Features
 
 - **Real-time Entropy Calculation:** Measures the mathematical unpredictability of your password in bits.
 - **Visual Strength Meter:** A dynamic, color-coded bar that changes from Red (Weak) to Green (Very Strong) as you type.
@@ -17,13 +17,13 @@ Passwdin is a modern, real-time password analysis tool designed to help users cr
 - **Breach Checker:** Integration with HaveIBeenPwned (via K-Anonymity) to check if your password has appeared in known data breaches without ever sending your actual password to the server.
 - **UX Polish:** Includes a "Show/Hide" toggle and a "Copy to Clipboard" feature with an offline fallback.
 
-## 🛠️ Technical Architecture
+## Technical Architecture
 
 - **Frontend:** Built with modern HTML5, Vanilla CSS, and JavaScript. Uses [Tabler Icons](https://tabler-icons.io/) for a clean, professional UI.
 - **Backend:** Powered by **Python (FastAPI)**. While the primary logic is currently handled client-side for speed, the backend provides an extensible API for deeper analysis.
 - **Security:** Uses `crypto.getRandomValues` for generation and `SHA-1` hashing for breach checking.
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 Passwdin/
@@ -37,7 +37,7 @@ Passwdin/
     └── script.js           # Core Logic & Real-time Interaction
 ```
 
-## 🚥 How to Run
+## How to Run
 
 ### 1. Prerequisites
 - Python 3.x installed.
@@ -59,7 +59,7 @@ python3 -m http.server 8080 --directory frontend
 ```
 *Access the app at **`http://localhost:8080`**.*
 
-## 🧪 Security Logic Note
+## Security Logic Note
 Passwdin uses the formula: `Entropy = Length × log2(Pool Size)`. 
 However, if a **Dictionary Pattern** is detected, the entropy score is penalized by **75%**. This reflects the reality that hackers do not just brute-force; they use smart lists to crack common passwords in seconds.
 
