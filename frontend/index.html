@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passwdin - Advanced Strength Analyzer</title>
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">Passwdin</h1>
+        <h2 class="sr-only">Password strength analyser — type a password to see its entropy, crack time, and composition breakdown.</h2>
+
+        <div style="padding:1rem 0">
+            <div class="pw-card">
+                <div class="pw-input-wrap">
+                    <input type="password" id="pw" placeholder="Type a password…" oninput="analyse()" autocomplete="off" spellcheck="false"/>
+                    <button onclick="toggleVis()" aria-label="Toggle password visibility" id="vis-btn" class="icon-btn"><i class="ti ti-eye" id="vis-icon"></i></button>
+                    <button onclick="copyPw()" aria-label="Copy password" id="copy-btn" class="icon-btn"><i class="ti ti-copy"></i></button>
+                    <button onclick="genPw()" aria-label="Generate strong password" class="icon-btn"><i class="ti ti-refresh"></i></button>
+                </div>
+
+                <div style="display:flex;align-items:center;justify-content:space-between">
+                    <span id="badge" class="badge" style="background:var(--color-background-secondary);color:var(--color-text-secondary)">—</span>
+                    <span style="font-size:12px;color:var(--color-text-secondary)" id="entropy-label">0 bits entropy</span>
+                </div>
+                <div class="meter-track"><div class="meter-fill" id="meter"></div></div>
+                <div id="pattern-warn" class="pattern-warn"><i class="ti ti-alert-triangle" aria-hidden="true" style="font-size:13px;margin-right:4px"></i><span id="pattern-text"></span></div>
+
+                <div class="stat-grid">
+                    <div class="stat"><div class="stat-label">Entropy</div><div class="stat-val" id="s-entropy">0 <span style="font-size:13px;font-weight:400">bits</span></div></div>
+                    <div class="stat"><div class="stat-label">Crack time</div><div class="stat-val" id="s-crack" style="font-size:14px;padding-top:4px">—</div></div>
+                    <div class="stat"><div class="stat-label">Length</div><div class="stat-val" id="s-len">0</div></div>
+                    <div class="stat"><div class="stat-label">Pool size</div><div class="stat-val" id="s-pool">0</div></div>
+                </div>
+
+                <div class="composition-row">
+                    <div>
+                        <div class="section-title">Composition</div>
+                        <div id="checks"></div>
+                    </div>
+                    <div>
+                        <div class="section-title">Suggestions</div>
+                        <ul class="tip-list" id="tips"><li style="color:var(--color-text-secondary);font-size:13px">Start typing…</li></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
